@@ -98,11 +98,12 @@ const getISO8601DateTimeString = (dateObj = new Date(), tz) => {
       const utcHours = dateObj.getUTCHours();
       const utcMinutes = dateObj.getUTCMinutes();
       const utcSeconds = dateObj.getUTCSeconds();
+      const utcMilliseconds = dateObj.getUTCMilliseconds();
 
       return (
         `${utcFullYear}-${padNumber(2, utcMonth)}-${padNumber(2, utcDate)} ` +
         `${padNumber(2, utcHours)}:${padNumber(2, utcMinutes)}:` +
-        `${padNumber(2, utcSeconds)}`
+        `${padNumber(2, utcSeconds)}.${padNumber(3, utcMilliseconds)}`
       );
 
     case 'local':
@@ -114,11 +115,13 @@ const getISO8601DateTimeString = (dateObj = new Date(), tz) => {
       const localHours = dateObj.getHours();
       const localMinutes = dateObj.getMinutes();
       const localSeconds = dateObj.getSeconds();
+      const localMilliseconds = dateObj.getMilliseconds();
 
       return (
         `${localFullYear}-${padNumber(2, localMonth)}-` +
         `${padNumber(2, localDate)} ${padNumber(2, localHours)}:` +
-        `${padNumber(2, localMinutes)}:${padNumber(2, localSeconds)}`
+        `${padNumber(2, localMinutes)}:${padNumber(2, localSeconds)}.` +
+        padNumber(2, localMilliseconds)
       );
 
     default:

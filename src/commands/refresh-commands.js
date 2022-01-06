@@ -52,6 +52,10 @@ const RefreshCommandsCommandHandler = async (interaction) => {
 
   // Bot owner is running command, authorised
   if (authorised) {
+    Logger.Announce(
+      'Authorised User Refreshing Application (Slash) Commands..'
+    );
+
     await require('../registerSlashCommands')();
 
     interaction.reply({

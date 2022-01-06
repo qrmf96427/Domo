@@ -36,7 +36,7 @@ const {
  * @param {Interaction<import('discord.js').CacheType>} interaction
  */
 const InteractionHandler = async (interaction) => {
-  const Config = getConfig();
+  const Config = await getConfig();
 
   if (
     (process.env.NODE_ENVIRONMENT === 'debug' ||
